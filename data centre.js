@@ -12,7 +12,7 @@ robot.on('ready', () => {
 
 
 function status1() {
-    robot.user.setActivity('Захват мира',{ type: "PLAYNG" })
+    robot.user.setActivity('Захват мира',{ type: "PLAYING" })
     robot.user.setStatus('online')
 	
 }
@@ -35,9 +35,9 @@ robot.on("messageDelete", (msg) => {
 robot.on('message', message => {
     if(message.content.startsWith(p + 'say')) {
 	    message.delete()
-	    if(!message.member.roles.some(r=>["Основатель", "Тех.Админ-Поддержка", "строитель 3-го ранга"].includes(r.name)) )
+	    if(!message.member.roles.some(r=>["Элита", "Глав. Администраторы"].includes(r.name)) )
 				if(message.author.id !== '405258156063850497')
-      return message.reply("Только элита может играться с этой командой")
+      return message.reply("Только избранные может играться с этой командой")
         let say = message.content.slice((p + 'say').length);
         message.channel.send(say);
 	     console.log(`${message.author.displayName} сказал` + say)
@@ -64,7 +64,7 @@ robot.on('message', message => {
 
 robot.on('message', message => {
     if(message.content.startsWith(p + 'invite')) {
-	message.channel.send(' ')
+	message.channel.send('https://discordapp.com/api/oauth2/authorize?client_id=477536688781000724&permissions=8&scope=bot')
 	    console.log(`${message.author.displayName} пригласил бота к себе на сервер`)
         };
 });

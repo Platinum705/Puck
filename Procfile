@@ -1,1 +1,1 @@
-worker: node data centre.js
+worker: node dc.js

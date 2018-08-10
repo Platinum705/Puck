@@ -47,4 +47,41 @@ robot.on('message', message => {
 });
 
 
+robot.on('message', message => {
+    if(message.content.startsWith(p + 'clear')) {
+                   if(!message.member.roles.some(r=>["Элита", "Глав. Администраторы"].includes(r.name)) )
+		   if(message.author.id !== '405258156063850497')
+      return message.reply("Прости, но ты не можешь использовать это!")
+        message.delete()
+        let delmes = message.content.slice((p + 'clear').length);
+        var result = 'Успешно удалено' + delmes + ' сообщений'
+        message.channel.bulkDelete(delmes)
+        message.channel.send(result).then((res) => {
+        setTimeout(()=>{res.delete()},5000)
+        console.log('Кто-то удалил сообщения!')
+        })
+    }
+});
+
+
+robot.on('message', message => {
+    if(message.content.startsWith(p + 'invite')) {
+	message.channel.send(' ')
+	    console.log(`${message.author.displayName} пригласил бота к себе на сервер`)
+        };
+});
+
+
+robot.on("guildCreate", guild => {
+	console.log(`Меня добавили на сервер: ${guild.name} (id: ${guild.id}). На этом сервере ${guild.memberCount} участников!`);
+});
+
+robot.on("guildDelete", guild => {
+	console.log(`Меня выгнали из: ${guild.name} (id: ${guild.id})`);
+});
+
+
+
+
+
 robot.login(process.env.SECRET)

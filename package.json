@@ -2,9 +2,9 @@
   "name": "Puck",
   "version": "1.0.0",
   "description": "",
-  "main": "data centre.js",
+  "main": "dc.js",
   "scripts": {
-   "start": "node data centre.js"
+   "start": "node dc.js"
 
   },
   "author": "",

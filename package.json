@@ -2,12 +2,12 @@
   "name": "Puck",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "data centre.js",
   "scripts": {
    "start": "node data centre.js"
 
   },
-  "author": "Platinum",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.3.2"

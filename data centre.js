@@ -84,4 +84,4 @@ robot.on("guildDelete", guild => {
 
 
 
-robot.login(process.env.SECRET)
+robot.login(process.env.BOT_TOKEN);

@@ -6,18 +6,16 @@ var p = "*"
 robot.on('ready', () => {
     robot.user.setActivity('login..',{ type: "PLAYING" })
     robot.user.setStatus('dnd')
-    setTimeout(status1, 12000)
+    setTimeout(status1, 10000)
     console.log('Bot login')
 });
 
 
 function status1() {
-    robot.user.setActivity('На закат',{ type: "WATCHING" })
+    robot.user.setActivity('Захват мира',{ type: "PLAYNG" })
     robot.user.setStatus('online')
 	
 }
-
-
 
 robot.on("messageDelete", (msg) => {
   if (typeof msg.content !== 'undefined'){

@@ -1,0 +1,15 @@
+{
+  "name": "Puck",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+   "start": "node data centre.js"
+
+  },
+  "author": "Platinum",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.3.2"
+  }
+}

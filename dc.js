@@ -2,6 +2,9 @@ const Discord = require("discord.js");
 const robot = new Discord.Client();
 const fs =require("fs")
 var p = "*"
+fs.readFile('random.js', 'utf8', function (err, data) {
+});
+
 
 robot.on('ready', () => {
     robot.user.setActivity('login..',{ type: "PLAYING" })

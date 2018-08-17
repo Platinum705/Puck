@@ -1,3 +1,8 @@
+fs.readFile('dc.js', 'utf8', function (err, data) {
+
+
+});
+
 robot.on('message', message => {
             if(message.content.startsWith(p + 'rand')) {
             message.delete()

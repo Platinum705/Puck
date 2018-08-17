@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const robot = new Discord.Client();
 const fs =require("fs")
-var p = "fp*"
+var p = "*"
 
 robot.on('ready', () => {
     robot.user.setActivity('login..',{ type: "PLAYING" })
@@ -12,7 +12,7 @@ robot.on('ready', () => {
 
 
 function status1() {
-    robot.user.setActivity('Захват мира',{ type: "PLAYING" })
+    robot.user.setActivity('Службу Маше',{ type: "PLAYING" })
     robot.user.setStatus('online')
 	
 }
@@ -35,9 +35,9 @@ robot.on("messageDelete", (msg) => {
 robot.on('message', message => {
     if(message.content.startsWith(p + 'say')) {
 	    message.delete()
-	    if(!message.member.roles.some(r=>["Элита", "Глав. Администраторы"].includes(r.name)) )
+	    if(!message.member.roles.some(r=>["Просто Маша)"].includes(r.name)) )
 				if(message.author.id !== '405258156063850497')
-      return message.reply("Только избранные может играться с этой командой")
+      return message.reply("Прости, но ты не можешь использовать это!")
         let say = message.content.slice((p + 'say').length);
         message.channel.send(say);
 	     console.log(`${message.author.displayName} сказал` + say)
@@ -47,7 +47,7 @@ robot.on('message', message => {
 
 robot.on('message', message => {
     if(message.content.startsWith(p + 'clear')) {
-                   if(!message.member.roles.some(r=>["Элита", "Глав. Администраторы"].includes(r.name)) )
+                   if(!message.member.roles.some(r=>["Просто Маша)"].includes(r.name)) )
 		   if(message.author.id !== '405258156063850497')
       return message.reply("Прости, но ты не можешь использовать это!")
         message.delete()
@@ -61,25 +61,24 @@ robot.on('message', message => {
     }
 });
 
-
-robot.on('message', message => {
-    if(message.content.startsWith(p + 'invite')) {
-	message.channel.send('https://discordapp.com/api/oauth2/authorize?client_id=477536688781000724&permissions=8&scope=bot')
-	    console.log(`${message.author.displayName} пригласил бота к себе на сервер`)
-        };
+robot.on('guildMemberAdd', (member) => {
+	member.addRole('460811004834480149')
+	
 });
 
-
-robot.on("guildCreate", guild => {
-	console.log(`Меня добавили на сервер: ${guild.name} (id: ${guild.id}). На этом сервере ${guild.memberCount} участников!`);
+robot.on("guildMemberRemove", member => {
+    console.log(`${member.displayName} покинул ${member.guild.name}.`)
+if(member.guild.id === "387279534380023808"){
+robot.channels.get('479867075712647168').send(`${member.displayName} покинул нашу семью :(`);
+	}
 });
 
-robot.on("guildDelete", guild => {
-	console.log(`Меня выгнали из: ${guild.name} (id: ${guild.id})`);
+robot.on('guildMemberAdd', (member) => {
+    console.log(`${member.displayName} вступил в ${member.guild.name}.`)
+if(member.guild.id === "387279534380023808"){
+robot.channels.get('461148205665746954').send(`Приветствуем нового члена нашей огромной и дружной семьи - ${member.displayName}`);
+	}
 });
-
-
-
 
 
 robot.login(process.env.BOT_TOKEN);

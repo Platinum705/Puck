@@ -3,7 +3,7 @@ const robot = new Discord.Client();
 const fs =require("fs")
 var p = "*"
 fs.readFile('random.js', 'utf8', function (err, data) {
-if (err) throw err;
+
 
 });
 

@@ -80,5 +80,18 @@ robot.channels.get('461148205665746954').send(`Приветствуем ново
 	}
 });
 
+robot.on('message', msg => {
+    if (msg.content === (p + 'монетка')) {
+        var coin = Math.floor(Math.random() * 2) + 1  
+	msg.delete()
+    if(coin == 1){
+        msg.reply('Тебе выпала ***Решка!*** <:owo:469056967755825163>')
+    }
+    if(coin == 2){
+        msg.reply('Тебе выпал ***Орел!*** 🦅')
+	    }
+
+    }
+});
 
 robot.login(process.env.BOT_TOKEN);

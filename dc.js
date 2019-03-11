@@ -12,7 +12,7 @@ robot.on('ready', () => {
 
 
 function status1() {
-    robot.user.setActivity('Службу Маше',{ type: "PLAYING" })
+    robot.user.setActivity('Minecraft',{ type: "PLAYING" })
     robot.user.setStatus('online')
 	
 }

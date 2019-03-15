@@ -82,14 +82,26 @@ robot.on('message', msg => {
     }
 });
 robot.on('message', message => {
-    if(message.content.startsWith(p + 'join')) {
-	    message.delete()
-    voiceChannel.join()
-  .then(connection => {
+  
+  if (!message.guild) return;
 
-  });
-	     console.log(`Успешно вошел на канал`)
+  if (message.content === '/join') {
+   
+    if (message.member.voiceChannel) {
+      message.member.voiceChannel.join()
+        .then(connection => { 
+          message.reply('I have successfully connected to the channel!');
+        })
+        .catch(console.log);
+    } else {
+      message.reply('You need to join a voice channel first!');
     }
+  }
 });
 
+robot.on('message', msg => {
+    if (msg.content === (p + 'play')) {
+       connection.playArbitraryInput('http://mysite.com/sound.mp3');
+    }
+});
 robot.login(process.env.BOT_TOKEN);

@@ -81,5 +81,15 @@ robot.on('message', msg => {
 
     }
 });
+robot.on('message', message => {
+    if(message.content.startsWith(p + 'join')) {
+	    message.delete()
+    voiceChannel.join()
+  .then(connection => {
+
+  });
+	     console.log(`Успешно вошел на канал`)
+    }
+});
 
 robot.login(process.env.BOT_TOKEN);

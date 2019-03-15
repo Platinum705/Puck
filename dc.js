@@ -73,7 +73,7 @@ robot.on('message', msg => {
         var coin = Math.floor(Math.random() * 2) + 1  
 	msg.delete()
     if(coin == 1){
-        msg.reply('Тебе выпала ***Решка!*** <:owo:469056967755825163>')
+        msg.reply('Тебе выпала ***Решка!***')
     }
     if(coin == 2){
         msg.reply('Тебе выпал ***Орел!*** 🦅')
